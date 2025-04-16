@@ -1,109 +1,109 @@
 {
-    "plugins": [
-        "sentence-case",
-        {
-            "type": "linked-versions",
-            "group-name": "devenv",
-            "components": [
-                "devcontainer",
-                "container-economic-tools",
-                "devcontainer-economic-tools"
-            ],
-            "merge": false
-        }
-    ],
-    "bump-minor-pre-major": true,
-    "bump-patch-for-minor-pre-major": true,
-    "changelog-sections": [
-        {
-            "type": "feat",
-            "section": "Features"
-        },
-        {
-            "type": "feature",
-            "section": "Features"
-        },
-        {
-            "type": "fix",
-            "section": "Bug Fixes"
-        },
-        {
-            "type": "perf",
-            "section": "Performance Improvements"
-        },
-        {
-            "type": "revert",
-            "section": "Reverts"
-        },
-        {
-            "type": "docs",
-            "section": "Documentation"
-        },
-        {
-            "type": "style",
-            "section": "Styles"
-        },
-        {
-            "type": "chore",
-            "section": "Miscellaneous Chores",
-            "hidden": false
-        },
-        {
-            "type": "refactor",
-            "section": "Code Refactoring",
-            "hidden": false
-        },
-        {
-            "type": "test",
-            "section": "Tests",
-            "hidden": true
-        },
-        {
-            "type": "build",
-            "section": "Build System",
-            "hidden": true
-        },
-        {
-            "type": "ci",
-            "section": "Continuous Integration",
-            "hidden": true
-        }
-    ],
-    "include-component-in-tag": true,
-    "include-v-in-tag": true,
-    "initial-version": "0.1.0",
-    "packages": {
-        ".": {
-            "release-type": "simple",
-            "package-name": "Economic Tools",
-            "component": "economic-tools"
-        },
-        ".devcontainer": {
-            "release-type": "simple",
-            "package-name": "devcontainer",
-            "component": "devcontainer",
-            "extra-files": [
-                {
-                    "type": "generic",
-                    "path": "devcontainer.json"
-                }
-            ]
-        },
-        "containers/economic-tools": {
-            "release-type": "simple",
-            "package-name": "container-economic-tools",
-            "component": "container-economic-tools"
-        },
-        "devcontainers/economic-tools": {
-            "release-type": "simple",
-            "package-name": "devcontainer-economic-tools",
-            "component": "devcontainer-economic-tools",
-            "extra-files": [
-                {
-                    "type": "generic",
-                    "path": ".devcontainer/devcontainer.json"
-                }
-            ]
-        }
+  "plugins": [
+    "sentence-case",
+    {
+      "type": "linked-versions",
+      "group-name": "devenv",
+      "components": [
+        "devcontainer",
+        "container-economic-tools",
+        "devcontainer-economic-tools"
+      ],
+      "merge": false
     }
+  ],
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "changelog-sections": [
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "feature",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "perf",
+      "section": "Performance Improvements"
+    },
+    {
+      "type": "revert",
+      "section": "Reverts"
+    },
+    {
+      "type": "docs",
+      "section": "Documentation"
+    },
+    {
+      "type": "style",
+      "section": "Styles"
+    },
+    {
+      "type": "chore",
+      "section": "Miscellaneous Chores",
+      "hidden": false
+    },
+    {
+      "type": "refactor",
+      "section": "Code Refactoring",
+      "hidden": false
+    },
+    {
+      "type": "test",
+      "section": "Tests",
+      "hidden": true
+    },
+    {
+      "type": "build",
+      "section": "Build System",
+      "hidden": true
+    },
+    {
+      "type": "ci",
+      "section": "Continuous Integration",
+      "hidden": true
+    }
+  ],
+  "include-component-in-tag": true,
+  "include-v-in-tag": true,
+  "initial-version": "0.1.0",
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "package-name": "Economic Tools",
+      "component": "economic-tools"
+    },
+    ".devcontainer": {
+      "release-type": "simple",
+      "package-name": "devcontainer",
+      "component": "devcontainer",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "devcontainer.json"
+        }
+      ]
+    },
+    "containers/economic-tools": {
+      "release-type": "simple",
+      "package-name": "container-economic-tools",
+      "component": "container-economic-tools"
+    },
+    "devcontainers/economic-tools": {
+      "release-type": "simple",
+      "package-name": "devcontainer-economic-tools",
+      "component": "devcontainer-economic-tools",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": ".devcontainer/devcontainer.json"
+        }
+      ]
+    }
+  }
 }

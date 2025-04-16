@@ -80,10 +80,10 @@ Be specific.
 A body that says "Fixes stuff" will be rejected.
 Be sure to include the following as relevant:
 
-* what the change does,
-* why you chose that approach,
-* what assumptions were made, and
-* how you know it works -- for example, which tests you ran.
+- what the change does,
+- why you chose that approach,
+- what assumptions were made, and
+- how you know it works -- for example, which tests you ran.
 
 Each line in your commit message must be 72 characters or less.
 Use newlines to wrap longer lines.
@@ -101,6 +101,7 @@ Refs: [issue]
 Where [issue] is the relevant issue identifier. Example:
 
 **GitHub Issue:**
+
 ```text
 Fixes: #1234
 Signed-off-by: ...
@@ -150,7 +151,7 @@ to receive comments on provided patches.
 If you are reviewing other contributor's code please consider the following
 when reviewing:
 
-* Be nice. Please make the review comment as constructive as possible so all
+- Be nice. Please make the review comment as constructive as possible so all
   participants will learn something from your review.
 
 As a contributor you might be asked to rewrite portions of your code to make it
