@@ -1,0 +1,63 @@
+# Copyright (C) 2025 Jaremy Hatler
+# SPDX-License-Identifier: MIT
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+  packages: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    environment: main
+    steps:
+      - name: Process Release
+        uses: googleapis/release-please-action@v4
+        id: release
+
+      - name: Checkout
+        if: ${{ steps.release.outputs.releases_created }}
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # jscpd:ignore-start
+      - name: Publish Economic Tools Container
+        if: ${{ steps.release.outputs['containers/economic-tools--release_created'] }}
+        uses: ./.github/actions/container
+        with:
+          context: "{{defaultContext}}:containers/economic-tools"
+          platforms: linux/amd64
+          push: true
+          repository: ghcr.io/jhatler/economic-tools
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          semver_major: ${{ steps.release.outputs['containers/economic-tools--major'] }}
+          semver_minor: ${{ steps.release.outputs['containers/economic-tools--minor'] }}
+          semver_patch: ${{ steps.release.outputs['containers/economic-tools--patch'] }}
+      # jscpd:ignore-end
+
+      # jscpd:ignore-start
+      - name: Publish Economic Tools Devcontainer
+        if: ${{ steps.release.outputs['devcontainers/economic-tools--release_created'] || steps.release.outputs['containers/economic-tools--release_created'] }}
+        uses: ./.github/actions/devcontainer
+        with:
+          workspace: ${{ github.workspace }}/devcontainers/economic-tools
+          platforms: linux/amd64
+          push: true
+          repository: ghcr.io/jhatler/economic-tools-devcontainer
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          semver_major: ${{ steps.release.outputs['devcontainers/economic-tools--major'] }}
+          semver_minor: ${{ steps.release.outputs['devcontainers/economic-tools--minor'] }}
+          semver_patch: ${{ steps.release.outputs['devcontainers/economic-tools--patch'] }}
+      # jscpd:ignore-end

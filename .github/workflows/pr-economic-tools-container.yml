@@ -1,0 +1,39 @@
+# Copyright (C) 2025 Jaremy Hatler
+# SPDX-License-Identifier: MIT
+name: PR Checks for Economic Tools Container
+on:
+  pull_request:
+    paths:
+      - "containers/economic-tools/**"
+      - "!containers/economic-tools/CHANGELOG.md"
+
+concurrency:
+  # For pull requests, cancel all currently-running jobs for this workflow
+  # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  build:
+    name: Build Economic Tools Container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build Container
+        uses: ./.github/actions/container
+        with:
+          context: "{{defaultContext}}:containers/economic-tools"
+          platforms: linux/amd64
+          push: false
+          repository: ghcr.io/jhatler/economic-tools
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
