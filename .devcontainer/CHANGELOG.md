@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/jhatler/economic-tools/compare/devcontainer-v0.1.0...devcontainer-v0.1.1) (2025-04-17)
+
+
+### Miscellaneous Chores
+
+* **devcontainer:** Synchronize undefined versions
+
 ## 0.1.0 (2025-04-16)
 
 
