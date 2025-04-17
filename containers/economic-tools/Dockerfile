@@ -31,7 +31,7 @@ RUN apt-get update \
  && mv entropy /usr/local/bin
 
 # Functional stage
-FROM mcr.microsoft.com/devcontainers/base:bookworm AS functional
+FROM mcr.microsoft.com/devcontainers/python:bookworm AS functional
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-c"]
 ENV SHELL=/bin/bash
 ENV DEBIAN_FRONTEND=noninteractive
@@ -40,7 +40,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
         build-essential=12.9 \
-        wget=1.21.3-1+b2 \
+        wget=1.21.3-1+deb12u1 \
         gnupg=2.2.40-1.1 \
         bash-completion=1:2.11-6 \
  && apt-get autoremove --purge -y \
