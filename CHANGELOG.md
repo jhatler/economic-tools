@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/jhatler/economic-tools/compare/economic-tools-v0.1.0...economic-tools-v0.1.1) (2025-04-17)
+
+
+### Bug Fixes
+
+* Update wget in Docker container ([#5](https://github.com/jhatler/economic-tools/issues/5)) ([12b637d](https://github.com/jhatler/economic-tools/commit/12b637d0925641d49b0c7b50bb6e8c4c1855ecb6)), closes [#4](https://github.com/jhatler/economic-tools/issues/4)
+
 ## 0.1.0 (2025-04-16)
 
 
